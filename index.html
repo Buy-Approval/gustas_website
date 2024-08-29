@@ -10,6 +10,19 @@
             font-family: Arial, sans-serif;
             background-color: white;
         }
+
+        /* Optional: Add some basic styling */
+        ul {
+            margin-left: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        h4 {
+            cursor: pointer; /* Makes the cursor a pointer when hovering over <h4> elements */
+        }
     </style>
 </head>
 <body>
@@ -20,30 +33,32 @@
 
 <main>
     <section>
-        <h3>My name is Gustas Kardoka</h3>
-        <h2>About me</h2>
-        <h3>I am 14 years old, and from Kaunas, Lithuania.</h3>
+        <h2>About Me</h2>
+        <ul>
+        <li><h3>My name is Gustas Kardoka</h3></li>
+        <li><h3>I am 14 years old, and from Kaunas, Lithuania.</h3></li>
+        </ul>
     </section>
 
     <section>
-        <h4>Goals</h4>
-        <ul>
+        <h4><u>Goals</u></h4>
+        <ul class="hidden">
             <li>Want to learn Python, CSS, JavaScript, HTML, and more.</li>
             <li>I wish for a job in programming.</li>
         </ul>
     </section>
 
     <section>
-        <h4>Hobbies</h4>
-        <ul>
+        <h4><u>Hobbies</u></h4>
+        <ul class="hidden">
             <li>Love learning how to code</li>
             <li>Love learning about computers and how they work</li>
         </ul>
     </section>
 
     <section>
-        <h4>Some projects I have made are:</h4>
-        <ul>
+        <h4><u>projects I have made are:</u></h4>
+        <ul class="hidden">
             <li>An insanely simple calculator in Python (doesn't even have a GUI)</li>
             <li>A zombie game in Scratch</li>
             <li>Also, this website</li>
@@ -51,8 +66,8 @@
     </section>
 
     <section>
-        <p>More things about me apart from computer-related stuff are:</p>
-        <ul> 
+        <h4><u>More things about me apart from computer-related stuff are:</u></h4>
+        <ul class="hidden"> 
             <li>I love cooking and food in general.</li>
             <li>I like to draw buildings sometimes for fun.</li>
         </ul>
@@ -65,6 +80,20 @@
         <li>Email: gkardoka@gmail.com</li>
     </ul>
 </footer>
+
+<script>
+    // JavaScript to toggle visibility of lists
+    document.querySelectorAll('h4').forEach(function(header) {
+        header.addEventListener('click', function() {
+            // Find the next sibling element which is the <ul> (or the list)
+            const list = header.nextElementSibling;
+            if (list) {
+                // Toggle the 'hidden' class on the <ul>
+                list.classList.toggle('hidden');
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
